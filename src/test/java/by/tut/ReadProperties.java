@@ -21,10 +21,9 @@ public class ReadProperties {
                     } catch ( IOException e ) {
                         e.printStackTrace();
                     }
-
             }
         }
-        public static String getUrlProperty (String key) {
+        public static String getProperty(String key) {
             return PROPERTIES.getProperty(key);
         }
 
