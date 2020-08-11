@@ -15,7 +15,6 @@ public class HomePageTest {
     public static WebDriver driver;
     public static WebDriverWait wdw;
 
-
     @BeforeTest
     public void start () {
         driver = new ChromeDriver();
@@ -24,11 +23,11 @@ public class HomePageTest {
         wdw = new WebDriverWait(driver,10);
         homePage = new HomePage(driver);
         properties = new ReadProperties();
+        driver.navigate().to(ReadProperties.getProperty("homepage"));
     }
 
      @Test
      public void toHomePage() {
-        driver.navigate().to(ReadProperties.getProperty("homepage"));
         wdw.until(titleIs("Белорусский портал TUT.BY. Новости Беларуси и мира"));
      }
 
