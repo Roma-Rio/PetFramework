@@ -1,5 +1,4 @@
-package by.tut;
-
+package by.tut.Utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,13 +6,13 @@ import java.util.Properties;
 
 
 public class ReadProperties {
-    protected static FileInputStream fileInputStream;
-    protected static Properties PROPERTIES;
+    private static FileInputStream fileInputStream;
+    private static Properties properties;
         static {
             try {
-                fileInputStream = new FileInputStream("src/test/resources/test.properties");
-                PROPERTIES = new Properties();
-                PROPERTIES.load(fileInputStream);
+                fileInputStream = new FileInputStream("src\\main\\resources\\test.properties");
+                properties = new Properties();
+                properties.load(fileInputStream);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -26,7 +25,7 @@ public class ReadProperties {
             }
         }
         public static String getProperty(String key) {
-            return PROPERTIES.getProperty(key);
+            return properties.getProperty(key);
         }
 }
 

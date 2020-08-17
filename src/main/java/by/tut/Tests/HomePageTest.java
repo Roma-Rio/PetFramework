@@ -1,5 +1,7 @@
-package by.tut;
+package by.tut.Tests;
 
+import by.tut.HomePage;
+import by.tut.Utils.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,10 +12,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 import java.util.concurrent.TimeUnit;
 
 public class HomePageTest {
-    public static HomePage homePage;
-    public static ReadProperties properties;
-    public static WebDriver driver;
-    public static WebDriverWait wdw;
+    private HomePage homePage;
+    private WebDriver driver;
+    private WebDriverWait wdw;
 
     @BeforeTest
     public void start () {
@@ -22,10 +23,8 @@ public class HomePageTest {
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         wdw = new WebDriverWait(driver,10);
         homePage = new HomePage(driver);
-        properties = new ReadProperties();
         driver.navigate().to(ReadProperties.getProperty("homepage"));
     }
-
      @Test
      public void toHomePage() {
         wdw.until(titleIs("Белорусский портал TUT.BY. Новости Беларуси и мира"));
